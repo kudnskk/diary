@@ -1,0 +1,89 @@
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .navbar {
+            background-color: #85a1b6;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .navbar-brand {
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        /* styles_admin.css */
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd; /* Add border rule */
+}
+
+
+        .nav-link {
+            color: #fff;
+            font-size: 1rem;
+            margin-right: 10px;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            background-color: #f25f5c;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #f49c9b;
+        }
+
+        .btn-danger {
+            background-color: #f25f5c;
+        }
+
+        .btn-danger:hover {
+            background-color: #f49c9b;
+        }
+
+        .btn-primary {
+            background-color: #70c1b3;
+        }
+
+        .btn-primary:hover {
+            background-color: #a1d9d0;
+        }
+
+        form {
+            margin-top: 10px;
+        }
