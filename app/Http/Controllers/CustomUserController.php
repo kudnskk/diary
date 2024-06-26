@@ -5,8 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Mail;
+
+
+// After the profile is created
+Mail::to($user->email)->send(new ProfileCreated($user));
 class CustomUserController extends Controller
+
 {
     public function index()
     {
@@ -37,7 +41,7 @@ class CustomUserController extends Controller
         'password' => Hash::make($request->password),
         'role_id' => $role_id, // Assign default role_id here
     ]);
-
+   
     return redirect()->route('home')
         ->with('success', 'User created successfully.');
 }
@@ -95,5 +99,27 @@ class CustomUserController extends Controller
 
         return redirect()->route('admin.dashboard')
             ->with('success', 'User deleted successfully.');
+    }
+
+    public function deleteProfile(Request $request)
+    {
+        Log::info('deleteProfile method called'); // Log method entry
+
+        $request->validateWithBag('userDeletion', [
+            'password' => ['required', 'current_password'],
+        ]);
+
+        $user = $request->user();
+        Log::info('User authenticated', ['user' => $user]);
+
+        Auth::logout();
+        $user->delete();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        Log::info('User deleted and session invalidated');
+
+        return Redirect::to('/');
     }
 }

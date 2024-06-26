@@ -7,6 +7,9 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\DashboardController;
+use App\Notifications\ProfileDeleted;
+use Illuminate\Support\Facades\Mail;
+
 
 
 Route::get('/users/{id}/edit', [CustomUserController::class, 'edit'])->name('users.edit');
@@ -43,6 +46,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
 
 
 require __DIR__.'/auth.php';

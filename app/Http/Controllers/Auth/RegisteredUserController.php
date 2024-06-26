@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use App\Notifications\ProfileCreated;
+
 
 class RegisteredUserController extends Controller
 {
@@ -41,6 +43,7 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
             'role_id' => 2, // Example: Assigning role for users upon registration
         ]);
+        $user->notify(new ProfileCreated($user));
 
         event(new Registered($user));
 

@@ -71,7 +71,15 @@
 
             <div class="description">
                 <!-- Delete User Form -->
-                @include('profile.partials.delete-user-form')
+                <form method="POST" action="{{ route('profile.destroy') }}">
+    @csrf
+    @method('delete')
+
+    <label for="password">Password</label>
+    <input id="password" name="password" type="password" required>
+    
+    <button type="submit">Delete Account</button>
+</form>
             </div>
         </div>
     </div>
